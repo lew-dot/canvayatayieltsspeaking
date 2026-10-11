@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Uzun Video Yatay Sunum</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #111;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #1d1d1f;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .presentation-container {
+            width: 1280px;
+            height: 720px;
+            background: linear-gradient(135deg, #ffffff 0%, #f4f5f7 100%);
+            border: 1px solid #e1e4e8;
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 60px 80px;
+            overflow: hidden;
+        }
+        
+        .top-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: #e63946;
+        }
+
+        .tag {
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            color: #e63946;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            opacity: 0;
+            transform: translateY(-10px);
+            animation: slideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
+        }
+
+        .title {
+            font-size: 42px;
+            font-weight: 900;
+            line-height: 1.2;
+            color: #0f172a;
+            letter-spacing: -0.5px;
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(15px);
+            animation: slideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.3s;
+        }
+
+        .content-box {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 18px;
+        }
+
+        .bullet-item {
+            background: #ffffff;
+            border: 1px solid #eaedf1;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+            padding: 18px 24px;
+            border-radius: 14px;
+            font-size: 20px;
+            line-height: 1.4;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .bullet-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .badge {
+            background: #ffe5e6;
+            color: #e63946;
+            font-size: 13px;
+            font-weight: 800;
+            padding: 5px 10px;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        .footer-note {
+            font-size: 14px;
+            font-weight: 600;
+            color: #94a3b8;
+            letter-spacing: 0.5px;
+        }
+
+        .slide-counter {
+            position: absolute;
+            bottom: 24px;
+            right: 32px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #64748b;
+            background: #f1f5f9;
+            padding: 6px 14px;
+            border-radius: 20px;
+        }
+
+        .slide {
+            display: none;
+            flex-direction: column;
+            height: 100%;
+            justify-content: space-between;
+        }
+        .slide.active {
+            display: flex;
+        }
+
+        @keyframes slideDown {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .instructions {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffffff;
+            color: #334155;
+            border: 1px solid #e2e8f0;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 13px;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="presentation-container" id="presentation">
+        <div class="top-bar"></div>
+        
+        <div class="slide active">
+            <div>
+                <div class="tag">IELTS & TOEFL • UZUN VİDEO</div>
+                <div class="title">IELTS SPEAKING NASIL ÇALIŞILIR?</div>
+            </div>
+            <div class="content-box">
+                <div class="bullet-item"><span class="badge">FORMAT</span><span>Yeni Formatlı "Interview" kısımları için ortak yöntem</span></div>
+                <div class="bullet-item"><span class="badge">AMAÇ</span><span>Kısa cevap yok, İngilizce bildiğini göstermek var</span></div>
+            </div>
+            <div class="footer-note">Fuat Özakça | Akademik İngilizce</div>
+        </div>
+
+        <div class="slide">
+            <div>
+                <div class="tag">STRATEJİ</div>
+                <div class="title">NASIL KONUŞALIM?</div>
+            </div>
+            <div class="content-box">
+                <div class="bullet-item"><span class="badge">01</span><span>Cevabını ver ve sebebini (because...) açıkla</span></div>
+                <div class="bullet-item"><span class="badge">02</span><span>Mutlaka somut bir örnek ver</span></div>
+                <div class="bullet-item"><span class="badge">03</span><span>Özgüvenle ve gerektiği kadar konuşup sus</span></div>
+            </div>
+            <div class="footer-note">Part 1 ve Part 3 Formülü</div>
+        </div>
+
+        <div class="slide">
+            <div>
+                <div class="tag">KRİTİK HATA</div>
+                <div class="title">SIK YAPILAN HATALAR</div>
+            </div>
+            <div class="content-box">
+                <div class="bullet-item"><span class="badge">HATA 1</span><span>"And... also..." deyip belirsiz şekilde beklemek</span></div>
+                <div class="bullet-item"><span class="badge">HATA 2</span><span>Examiner'ın "devam et" diye beklemesini sağlamak</span></div>
+                <div class="bullet-item"><span class="badge">HATA 3</span><span>Yeni cümleye başlayıp yarım bırakmak</span></div>
+            </div>
+            <div class="footer-note">Sınav Stratejisi</div>
+        </div>
+
+        <div class="slide">
+            <div>
+                <div class="tag">ALTIN KURAL</div>
+                <div class="title">EZBER YAPMAK YASAK!</div>
+            </div>
+            <div class="content-box">
+                <div class="bullet-item"><span class="badge">KURAL</span><span>Seviyenin üstünde ezber cümleler hemen fark edilir</span></div>
+                <div class="bullet-item"><span class="badge">ÇÖZÜM</span><span>Hatırlamazsan başka kelimelerle ifade et</span></div>
+            </div>
+            <div class="footer-note">Doğallık Her Şeydir</div>
+        </div>
+
+        <div class="slide">
+            <div>
+                <div class="tag">8 ADIMLI SİSTEM</div>
+                <div class="title">GÜNLÜK SPEAKING RUTİNİ</div>
+            </div>
+            <div class="content-box">
+                <div class="bullet-item"><span class="badge">ADIM 1-2</span><span>Her parttan 3 soru seç, sesli yanıtla ve kaydet</span></div>
+                <div class="bullet-item"><span class="badge">ADIM 3-4</span><span>İdeal cevabı sözlük kullanarak hatasız yaz</span></div>
+                <div class="bullet-item"><span class="badge">ADIM 5-8</span><span>Oku, sil, tekrar konuş ve ertesi gün kıyasla</span></div>
+            </div>
+            <div class="footer-note">Kendi Kendine Gelişim</div>
+        </div>
+
+        <div class="slide">
+            <div>
+                <div class="tag">ÖZEL DERS & İLETİŞİM</div>
+                <div class="title">ONLINE VE YÜZ YÜZE ÖZEL DERS</div>
+            </div>
+            <div class="content-box">
+                <div class="bullet-item"><span class="badge">WHATSAPP</span><span>0538 623 98 77</span></div>
+                <div class="bullet-item"><span class="badge">INSTAGRAM</span><span>@fuatozakca</span></div>
+                <div class="bullet-item"><span class="badge">SUPERPROF</span><span>Profil linki açıklamada</span></div>
+            </div>
+            <div class="footer-note">Fuat Özakça</div>
+        </div>
+
+        <div class="slide-counter" id="counter">1 / 6</div>
+    </div>
+
+    <div class="instructions">Sonraki madde için <b>Aşağı Ok</b>, sonraki slayt için <b>Sağ Ok</b> tuşuna basın.</div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const counter = document.getElementById('counter');
+
+        function getBullets(slide) {
+            return slide.querySelectorAll('.bullet-item');
+        }
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                    const bullets = getBullets(slide);
+                    bullets.forEach(b => b.classList.remove('visible'));
+                    if(bullets.length > 0) bullets[0].classList.add('visible');
+                }
+            });
+            counter.innerText = `${index + 1} / ${slides.length}`;
+        }
+
+        showSlide(0);
+
+        document.addEventListener('keydown', (e) => {
+            const activeSlide = slides[currentSlide];
+            const bullets = getBullets(activeSlide);
+            const visibleBullets = activeSlide.querySelectorAll('.bullet-item.visible');
+
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                if (visibleBullets.length < bullets.length) {
+                    bullets[visibleBullets.length].classList.add('visible');
+                } else {
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    showSlide(currentSlide);
+                }
+            } else if (e.key === 'ArrowLeft') {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(currentSlide);
+            } else if (e.key === 'ArrowDown') {
+                if (visibleBullets.length < bullets.length) {
+                    bullets[visibleBullets.length].classList.add('visible');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
